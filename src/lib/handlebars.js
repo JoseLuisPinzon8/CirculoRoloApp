@@ -1,0 +1,1 @@
+//handlebars funcoina mediante helpers

@@ -4,7 +4,7 @@
   "description": "Esta es la primera versión del proyecto. Aquí intentaré subir a git las carpetas del proyecto",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/"
   },
   "author": "Jose",
   "license": "ISC",
