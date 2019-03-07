@@ -1,5 +1,5 @@
 //ESTE ARCHIVO VA A TENER LA CONEXIÓN A MYSQL
-/*
+
 const mysql = require('mysql');
 const { promisify } = require('util');
 const { database } = require('./keys');
@@ -28,4 +28,3 @@ pool.getConnection(err, con => {
 pool.query = promisify(pool.query);
 
 module.exports = pool;
-*/
