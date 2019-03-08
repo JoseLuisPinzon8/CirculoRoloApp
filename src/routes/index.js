@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const pool = require('../database');
+
 router.get('/', (req, res) => {
   res.render('evento/inicio');
 	});
@@ -21,7 +23,16 @@ router.get('/login', (req, res) => {
   res.render('Sesion/login');
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
+	const {userName, pass} = req.body;
+	const iniSesion = {
+		userName,
+		pass
+	};
+
+//	console.log(iniSesion);
+
+	await pool.query('Insert Into LUGAR values('+iniSesion.pass+',' +iniSesion.userName+');');
 	res.send('recibido');
 });
 
