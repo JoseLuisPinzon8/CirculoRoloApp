@@ -1,3 +1,4 @@
+<body>
 <div class="container">
       <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #94B43B;">
         <a class="navbar-brand" href="#">Circulo Rolo</a>
@@ -7,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Crear evento</a>
@@ -32,7 +33,7 @@
   </div>
     <div class="py-5">
       <h2>Crear evento</h2>
-      <p class="lead">Ingresar informaciÃ³n del evento</p>
+      <p class="lead">Ingresar información del evento</p>
     </div>
 
     <div class="row">
@@ -81,7 +82,7 @@
       </div>
 
       <div class="col-md-8 order-md-1">
-        <h4 class="mb-3">InformaciÃ³n evento</h4>
+        <h4 class="mb-3">Información evento</h4>
         <form class="needs-validation" novalidate="">
           <div class="row">
             <div class="col-md-6 mb-3">
@@ -123,7 +124,7 @@
             </div>
 
             <div class="col-md-4 mb-3">
-              <label for="firstName">DuraciÃ³n</label>
+              <label for="firstName">Duración</label>
               <input type="text" class="form-control" id="duracion" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 Valid first name is required.
@@ -156,7 +157,7 @@
 
             <div class="input-group col-md-12 mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text">DescripciÃ³n</span>
+                <span class="input-group-text">Descripción</span>
               </div>
               <textarea class="form-control" aria-label="With textarea"></textarea>
             </div>
@@ -164,16 +165,17 @@
 
           <div class="mb-3">
             <label for="address">Lugar</label>
-            <input type="text" class="form-control" id="address" placeholder="DirecciÃ³n " required="">
+            <input type="text" class="form-control" id="address" placeholder="Dirección " required="">
             <div class="invalid-feedback">
               Please enter your shipping address.
             </div>
           </div>
 
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Confirmar</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit" method="post">Confirmar</button>
         </form>
       </div>
     </div>
 
   </div>
+</body>

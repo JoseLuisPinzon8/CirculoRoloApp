@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const db  = require("./database.js");
 
 //Initialization
 const app = express();
@@ -17,9 +18,9 @@ app.engine('.hbs', exphbs({
   extname: '.hbs',
   helpers: require('./lib/handlebars'),
 }));
-app.set('view engine', '.hbs');//La linea de arriba es como funcoina handlebars
+app.set('view engine', '.hbs');//La linea de arriba es como funciona handlebars
 
-//Middlewares
+//Middlewares	
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 

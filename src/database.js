@@ -6,7 +6,7 @@ const { database } = require('./keys');
 
 const pool = mysql.createPool(database); //Crea hilos para no correr todo secuencial
 
-pool.getConnection(err, con => {
+pool.getConnection((err, con) => {
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
       console.error('La conexión a la base de datos fue cerrada');
@@ -19,12 +19,14 @@ pool.getConnection(err, con => {
     }
   }
 
-  if (con) con.release(); //Así arranca la conexion
+  if (con){
+    con.release(); //Así arranca la conexion  
+  } 
   console.log('La base de datos está conectada');
   return;
 });
 
-//Convertir promesas en callbacks porque porque el pool no soporta promesas
+//Convertir callbacks en promesas porque el modulo mysql no soporta las promesas
 pool.query = promisify(pool.query);
 
 module.exports = pool;

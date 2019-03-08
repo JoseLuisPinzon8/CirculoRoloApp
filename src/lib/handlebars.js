@@ -1,1 +1,1 @@
-//handlebars funcoina mediante helpers
+//handlebars funciona mediante helpers

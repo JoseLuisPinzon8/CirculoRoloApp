@@ -3,13 +3,17 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   res.render('evento/inicio');
-});
+	});
 
-router.get('/crearevento', (requ, res) => {
+router.get('/crearevento', (req, res) => {
   res.render('evento/crearEvento');
 });
 
-router.get('/verevento', (requ, res) => {
+router.post('/crearevento', (req, res) => {
+	console.log("hola");
+});
+
+router.get('/verevento', (req, res) => {
   res.render('evento/verEvento');
 });
 
