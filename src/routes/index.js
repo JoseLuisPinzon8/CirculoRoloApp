@@ -17,4 +17,12 @@ router.get('/verevento', (req, res) => {
   res.render('evento/verEvento');
 });
 
+router.get('/login', (req, res) => {
+  res.render('Login/login');
+});
+
+router.post('/login', (req, res) => {
+	console.log("hola");
+});
+
 module.exports = router;
