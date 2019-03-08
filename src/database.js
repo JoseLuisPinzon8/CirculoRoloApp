@@ -6,7 +6,7 @@ const { database } = require('./keys');
 
 const pool = mysql.createPool(database); //Crea hilos para no correr todo secuencial
 
-pool.getConnection(err, con => {
+pool.getConnection((err, con) => {
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
       console.error('La conexión a la base de datos fue cerrada');
