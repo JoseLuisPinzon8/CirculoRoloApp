@@ -10,7 +10,7 @@ router.get('/crearevento', (req, res) => {
 });
 
 router.post('/crearevento', (req, res) => {
-	console.log("hola");
+	console.log(req.body);
 });
 
 router.get('/verevento', (req, res) => {
