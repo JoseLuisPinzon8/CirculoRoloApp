@@ -18,11 +18,11 @@ router.get('/verevento', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('Login/login');
+  res.render('Sesion/login');
 });
 
 router.post('/login', (req, res) => {
-	console.log("hola");
+	res.send('recibido');
 });
 
 module.exports = router;
