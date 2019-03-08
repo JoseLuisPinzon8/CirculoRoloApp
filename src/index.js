@@ -22,17 +22,23 @@ app.set('view engine', '.hbs');//La linea de arriba es como funciona handlebars
 
 //Middlewares	
 app.use(morgan('dev'));
+//para poder aceptar desde los formularios los datos que me envían los usuarios
 app.use(express.urlencoded({ extended: false }));
 
 //Global variables
+app.use((req,res,next)=>{
+
+next();
+});
 
 //Routes
 app.use(require('./routes/index'));
 
 //Lo de abajo es para crear carpetas por ruta, lo que Farid no quiere
-//app.use('/evento', require('./routes/evento'));
+app.use('/eventos', require('./routes/eventos'));
 
 //app.use(require('./routes/crearevento'))
+
 //Public
 
 //Carpeta en la que van todos los archivos al que el ordenador puede acceder
