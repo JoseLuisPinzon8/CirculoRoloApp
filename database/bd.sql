@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
   usua_correo VARCHAR(45) NOT NULL,
   usua_fechaDeNacimiento datetime NOT NULL,
   /*edad int -- cuando se consulte (columna calculada)*/
-  usua_foto BLOB NULL,
   PRIMARY KEY (usua_id))
 ENGINE = InnoDB;
 
