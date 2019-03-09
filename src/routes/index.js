@@ -12,15 +12,7 @@ router.get('/crearevento', (req, res) => {
 
 router.post('/crearevento', async (req, res) => {
 	const { nombreEvento, descripcion, capacidad, fecha, duracion, costo} = req.body;
-	const evento = {
-		nombreEvento,
-		descripcion,
-		capacidad,
-		fecha,
-		duracion,
-		costo
-	};
-	db.query('INSERT INTO evento set ?',[evento]); 
+	await db.query('INSERT INTO evento (even_nombre,even_descripcion,even_capacidad,even_fecha,even_duracion,even_costo,even_idUsuario,even_idLugar,even_idCategoria) VALUES ('+nombreEvento+","+descripcion+","+capacidad+","+fecha+","+duracion+","+costo+",1,1,1);"); 
 	res.redirect('/verevento');
 });
 
