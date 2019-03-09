@@ -5,6 +5,7 @@
     <title>Ciruclo Rolo</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/blog/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Bootstrap core CSS -->
     <style>
       .bd-placeholder-img {
@@ -21,13 +22,41 @@
           font-size: 3.5rem;
         }
       }
+
+      .tipo-letra-color{
+        color: #565A5C;
+      }
+
+      .titulo-letra-color{
+        color: #76232F;
+      }
     </style>
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
   </head>
   <body>
-
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #A61C31;">
+        <a class="navbar-brand" href="#">Circulo Rolo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/crearEvento">Crear evento</a>
+            </li>
+          </ul>
+          <a class="fab fa-facebook-f"  href="https://www.facebook.com/BienestarBogota/" target="_blank" style="color: white; margin: 10px;"></a>
+          <a class="fab fa-twitter"  href="https://twitter.com/uncolombia?lang=es" target="_blank" style="color: white; margin: 10px;"></a>
+          <a class="fab fa-instagram"  href="https://www.instagram.com/somosuncampus/" target="_blank" style="color: white;margin: 10px;"></a>
+        </div>
+      </nav>
+    </div>
     {{{body}}}
 
   </body>
