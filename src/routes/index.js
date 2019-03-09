@@ -23,17 +23,29 @@ router.get('/login', (req, res) => {
   res.render('Sesion/login');
 });
 
+router.get('/registrar', (req, res) => {
+  res.render('Sesion/registrar');
+});
+
 router.post('/login', async (req, res) => {
 	const {userName, pass} = req.body;
 	const iniSesion = {
 		userName,
 		pass
 	};
+/*
+	await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
 
-//	console.log(iniSesion);
-
-	await pool.query('Insert Into LUGAR values('+iniSesion.pass+',' +iniSesion.userName+');');
-	res.send('recibido');
+	const usuario = await pool.query('select * from USUARIOS where usua_userName="'+iniSesion.userName+'" and usua_contraseña="'+iniSesion.pass+'";');
+	if(usuario.length>0){
+		//res.send('recibido');
+		console.log(usuario);
+		res.render('evento/inicio');
+	}else{
+		//res.send('usuario no existe');
+		res.render('Sesion/login');
+	}
+	
 });
 
 module.exports = router;
