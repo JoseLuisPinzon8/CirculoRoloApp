@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const db  = require("./database.js");
+const formidable = require("express-formidable");
 
 //Initialization
 const app = express();
@@ -22,6 +23,7 @@ app.set('view engine', '.hbs');//La linea de arriba es como funciona handlebars
 
 //Middlewares	
 app.use(morgan('dev'));
+//app.use(formidable.parse({keepExtensions:true}));
 //para poder aceptar desde los formularios los datos que me envían los usuarios
 app.use(express.urlencoded({ extended: false }));
 

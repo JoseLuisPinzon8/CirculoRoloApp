@@ -82,7 +82,7 @@
 
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Información evento</h4>
-        <form class="needs-validation" novalidate="" action="/crearEvento" method="POST">
+        <form class="needs-validation" novalidate="" action="/crearEvento" method="POST" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">Nombre evento</label>
@@ -107,7 +107,11 @@
                 <option value="">Tipo...</option>
                 <option>Conciertos</option>
                 <option>Cultura</option>
-                <option>Comedias</option>
+                <option>Comedia</option>
+                <option>Teatro</option>
+                <option>Familiar</option>
+                <option>Deportes</option>
+                <option>Festivales</option>
               </select>
               <div class="invalid-feedback">
                 Please provide a valid state.
@@ -116,15 +120,15 @@
 
             <div class="col-md-4 mb-3">
               <label for="firstName">Fecha</label>
-              <input type="text" class="form-control" name="fecha" placeholder="" value="" required="">
+              <input type="date" class="form-control" name="fecha" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
             </div>
 
             <div class="col-md-4 mb-3">
-              <label for="firstName">Duración</label>
-              <input type="text" class="form-control" name="duracion" placeholder="" value="" required="">
+              <label for="firstName">Duración (horas)</label>
+              <input type="number" class="form-control" name="duracion" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
@@ -132,7 +136,7 @@
 
             <div class="col-md-3 mb-3">
               <label for="firstName">Capacidad</label>
-              <input type="text" class="form-control" name="capacidad" placeholder="" value="" required="">
+              <input type="number" class="form-control" name="capacidad" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
@@ -140,17 +144,17 @@
 
             <div class="col-md-4 mb-3">
               <label for="firstName">Costo</label>
-              <input type="text" class="form-control" name="costo" placeholder="" value="" required="">
+              <input type="number" class="form-control" name="costo" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
             </div>
 
             <div class="col-md-5 mb-3">
-              <label for="firstName">URL imagen</label>
-              <input type="text" class="form-control" name="image" placeholder="" value="" required="">
+              <label for="address">Lugar</label>
+              <input type="text" class="form-control" name="lugar" placeholder="Dirección " required="">
               <div class="invalid-feedback">
-                Valid first name is required.
+                Please enter your shipping address.
               </div>
             </div>
 
@@ -159,17 +163,19 @@
                 <span class="input-group-text">Descripción</span>
               </div>
               <textarea class="form-control" aria-label="With textarea" name="descripcion"></textarea>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
             </div>
           </div>
 
-          <div class="mb-3">
-            <label for="address">Lugar</label>
-            <input type="text" class="form-control" name="lugar" placeholder="Dirección " required="">
+          <div class="col-md-5 mb-3">
+            <label for="firstName">Imagen</label>
+            <input type="file" name="image" placeholder="" value="" required="" accept="image/*">
             <div class="invalid-feedback">
-              Please enter your shipping address.
+              Valid first name is required.
             </div>
           </div>
-
           <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Confirmar</button>
         </form>

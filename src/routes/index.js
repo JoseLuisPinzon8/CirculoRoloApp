@@ -11,6 +11,7 @@ router.get('/crearevento', (req, res) => {
 
 router.post('/crearevento', (req, res) => {
 	console.log(req.body);
+	res.redirect('/crearevento');
 });
 
 router.get('/verevento', (req, res) => {
