@@ -28,5 +28,5 @@ pool.getConnection((err, con) => {
 
 //Convertir callbacks en promesas porque el modulo mysql no soporta las promesas
 pool.query = promisify(pool.query);
-
+console.log(pool.query);
 module.exports = pool;
