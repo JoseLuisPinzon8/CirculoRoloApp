@@ -4,9 +4,11 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const db  = require("./database.js");
+const passport = require('passport');
 
 //Initialization
 const app = express();
+require('./lib/passport');
 
 //setings
 app.set('port', process.env.PORT || 3000);
@@ -20,16 +22,21 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');//La linea de arriba es como funciona handlebars
 
-//Middlewares	
+//Middlewares
 app.use(morgan('dev'));
+
 //para poder aceptar desde los formularios los datos que me envían los usuarios
 app.use(express.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Global variables
-app.use((req,res,next)=>{
+/*
+app.use((req, res, next)=>{
 
 next();
 });
+*/
 
 //Routes
 app.use(require('./routes/index'));

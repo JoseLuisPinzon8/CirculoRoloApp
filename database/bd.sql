@@ -21,9 +21,8 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
   usua_apellidos VARCHAR(45) NOT NULL,
   usua_contraseña VARCHAR(45) NOT NULL,
   usua_correo VARCHAR(45) NOT NULL,
-  usua_fechaDeNacimiento datetime NOT NULL,
+  usua_fechaDeNacimiento DATETIME NOT NULL,
   /*edad int -- cuando se consulte (columna calculada)*/
-  usua_foto BLOB NULL,
   PRIMARY KEY (usua_id))
 ENGINE = InnoDB;
 
@@ -146,7 +145,7 @@ CREATE TABLE IF NOT EXISTS COMENTARIO (
   idUsuario INT NOT NULL,
   idEvento INT NOT NULL,
   comentario VARCHAR(200) NOT NULL,
-  /*fecha datetime GENERATED ALWAYS AS (sysdate()) stored, --AL MOMENTO DE LA INSERCIÓN PONEMOS NOW()*/ 
+  /*fecha datetime GENERATED ALWAYS AS (sysdate()) stored, --AL MOMENTO DE LA INSERCIÓN PONEMOS NOW()*/
   fecha datetime,
   PRIMARY KEY (idUsuario, idEvento),
   INDEX fk_evento_idx (idEvento ASC) VISIBLE,
@@ -185,4 +184,3 @@ CREATE TABLE IF NOT EXISTS CATEGORIA_DE_INTERES (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
