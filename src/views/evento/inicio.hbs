@@ -1,31 +1,32 @@
 <div class="container">
 
-    {{#each listaEventos}}
-      <div class="jumbotron p-4 p-md text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-          <h1 class="display-4 font-italic">Evento de la semana:</h1>
-          <p class="lead my-3">Aquí va la descripción.</p>
-          <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Sigue leyendo...</a></p>
-        </div>
-      </div>
+  <div class="jumbotron p-4 p-md text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Evento de la semana:</h1>
+      <p class="lead my-3">Aquí va la descripción.</p>
+      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Sigue leyendo...</a></p>
+    </div>
+  </div>
 
-      <div class="row mb-2">
-      <div class="col-md-6">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 tipo-letra-color">{{tipo}}</strong>
-            <h3 class="mb-0 titulo-letra-color">{{even_nombre}}</h3>
-            <div class="mb-1 text-muted">{{even_fecha}}</div>
-            <p class="card-text mb-auto">{{even_duracion}}</p>
-            <a href="/verEvento/{{even_nombre}}" class="stretched-link">Sigue leyendo</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            
-          </div>
+  <div class="row mb-2">
+  {{#each results}}
+
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 tipo-letra-color">{{tipo}}</strong>
+          <h3 class="mb-0 titulo-letra-color">{{even_nombre}}</h3>
+          <div class="mb-1 text-muted">{{even_fecha}}</div>
+          <p class="card-text mb-auto">{{even_duracion}}</p>
+          <a href="/verEvento/{{even_nombre}}" class="stretched-link">Sigue leyendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          
         </div>
       </div>
-    {{else}}
-      <h3 class=" font-italic col-md text-center font-weight-lighter">No hay eventos en el momento</h3>
-    {{/each}}
+    </div>
+  {{else}}
+    <h3 class=" font-italic col-md text-center font-weight-lighter">No hay eventos en el momento</h3>
+  {{/each}}
   </div>
 </div>

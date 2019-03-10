@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../database');
 
-router.get('/', (req, res) => {
-  res.render('evento/inicio');
-});
-
 router.get('/crearevento', (req, res) => {
   res.render('evento/crearEvento');
 });
@@ -31,11 +27,12 @@ router.post('/crearevento', (req, res) => {
 
 
 router.get('/', (req, res) => {
-	c = "SELECT * FROM evento"; 
-	db.query(c,(error,results,fields)=>{''
+	c = "SELECT * FROM evento";
+	console.log("hooolaaaa");
+	db.query(c,(error,results,fields)=>{
 		if(error) throw error;
 	  	console.log(results);
-		res.render('evento/inicio', {c});
+		res.render('evento/inicio', {results});
 	});
 });
 
