@@ -18,11 +18,11 @@ router.post('/crearevento', (req, res) => {
 	q += ","+capacidad;
 	q += ',"'+fecha+'"';
 	q += ","+duracion;  
-	q += ","+costo;
+	q += ","+costo; 
 	q += ",1,1,1);";
 	console.log(q)
 	c = "select * from evento"; 
-	db.query(q,(error,results,fields)=>{''
+	db.query(q,(error,results,fields)=>{
 		if(error) throw error;
 		res.redirect('/verevento');	
 	}); 
