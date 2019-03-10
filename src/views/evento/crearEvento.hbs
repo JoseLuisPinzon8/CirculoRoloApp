@@ -1,16 +1,5 @@
 <div class="container">
 
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="#">Conciertos</a>
-      <a class="p-2 text-muted" href="#">Cultura</a>
-      <a class="p-2 text-muted" href="#">Comedia</a>
-      <a class="p-2 text-muted" href="#">Teatro</a>
-      <a class="p-2 text-muted" href="#">Familiar</a>
-      <a class="p-2 text-muted" href="#">Deportes</a>
-      <a class="p-2 text-muted" href="#">Festivales</a>
-    </nav>
-  </div>
     <div class="py-5">
       <h2>Crear evento</h2>
       <p class="lead">Ingresar información del evento</p>
@@ -34,98 +23,126 @@
 
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Información evento</h4>
-        <form class="needs-validation" novalidate="" action="/crearEvento" method="POST">
+        <form class="needs-validation" novalidate action="/crearEvento" method="POST">
           <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName">Nombre evento</label>
+            <div class="col-md-6 mb-3 form-group">
+              <label for="nombreEvento">Nombre evento</label>
               <input type="text" class="form-control" name="nombreEvento" placeholder="" value="" required="">
               <div class="invalid-feedback">
-                Valid first name is required.
+                Por favor, ingresa un nombre.
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="lastName">Organizador</label>
+              <label for="organizador">Organizador</label>
               <input type="text" class="form-control" name="organizador" placeholder="" value="" required="">
               <div class="invalid-feedback">
-                Valid last name is required.
+                ¿Quién lo organiza?
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4 mb-3">
-              <label for="state">Tipo de evento</label>
+              <label for="tipo">Tipo de evento</label>
               <select class="custom-select d-block w-100" name="tipo" required="" >
                 <option value="">Tipo...</option>
                 <option>Conciertos</option>
                 <option>Cultura</option>
-                <option>Comedias</option>
+                <option>Comedia</option>
+                <option>Teatro</option>
+                <option>Familiar</option>
+                <option>Deportes</option>
+                <option>Festivales</option>
               </select>
               <div class="invalid-feedback">
-                Please provide a valid state.
+                ¿De qué tipo es el evento?
               </div>
             </div>
 
             <div class="col-md-4 mb-3">
-              <label for="firstName">Fecha</label>
+              <label for="fecha">Fecha</label>
               <input type="text" class="form-control" name="fecha" placeholder="" value="" required="">
               <div class="invalid-feedback">
-                Valid first name is required.
+                ¿Cuándo es el evento?
               </div>
             </div>
 
             <div class="col-md-4 mb-3">
-              <label for="firstName">Duración</label>
+              <label for="duracion">Duración</label>
               <input type="text" class="form-control" name="duracion" placeholder="" value="" required="">
               <div class="invalid-feedback">
-                Valid first name is required.
+                ¿Cuánto dura el evento?
               </div>
             </div>
 
             <div class="col-md-3 mb-3">
-              <label for="firstName">Capacidad</label>
+              <label for="capacidad">Capacidad</label>
               <input type="text" class="form-control" name="capacidad" placeholder="" value="" required="">
               <div class="invalid-feedback">
-                Valid first name is required.
+                Por favor, ingresa capacidad del evento.
               </div>
             </div>
 
             <div class="col-md-4 mb-3">
-              <label for="firstName">Costo</label>
+              <label for="costo">Costo</label>
               <input type="text" class="form-control" name="costo" placeholder="" value="" required="">
               <div class="invalid-feedback">
-                Valid first name is required.
+                ¿Es gratis?
               </div>
             </div>
 
             <div class="col-md-5 mb-3">
-              <label for="firstName">URL imagen</label>
-              <input type="text" class="form-control" name="image" placeholder="" value="" required="">
+              <label for="url">URL imagen</label>
+              <input type="url" class="form-control" name="image" placeholder="" value="" required="">
               <div class="invalid-feedback">
-                Valid first name is required.
+                Necesitamos una foto.
               </div>
             </div>
 
             <div class="input-group col-md-12 mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Descripción</span>
+              <div class="descripcion">
+                <span class="form-control">Descripción</span>
               </div>
-              <textarea class="form-control" aria-label="With textarea" name="descripcion"></textarea>
+              <textarea class="form-control" aria-label="With textarea" name="descripcion" required></textarea>
+              <div class="invalid-feedback">
+                Agrega una breve descripción para saber de que trata.
+              </div>
             </div>
           </div>
 
           <div class="mb-3">
-            <label for="address">Lugar</label>
+            <label for="lugar">Lugar</label>
             <input type="text" class="form-control" name="lugar" placeholder="Dirección " required="">
             <div class="invalid-feedback">
-              Please enter your shipping address.
+              Por favor ingresa un lugar.
             </div>
           </div>
 
           <hr class="mb-4">
-          <button class="btn btn-danger btn-lg btn-block" type="submit" style="background-color: #A61C31; margin: 10px; margin-left: 0;">Confirmar</button>
+          <button class="btn btn-danger btn-lg btn-block" href="/#" type="submit" style="background-color: #A61C31; margin: 10px; margin-left: 0;">Confirmar</button>
         </form>
       </div>
     </div>
 
   </div>
+
+  <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>

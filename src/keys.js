@@ -7,7 +7,7 @@ module.exports = {
   database: {
     host: 'localhost',
     user: 'root',
-    password: 'ypeltalhqaaS28',
+    password: 'semeolvido1102',
     database: 'circuloRolo', //PONER NOMBRE DE LA BASE DE DATOS ej: use bd entonces pone el db
   }
 
