@@ -23,12 +23,9 @@
 
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Información evento</h4>
-<<<<<<< HEAD
         <form class="needs-validation" novalidate="" action="/crearEvento" method="POST" enctype="multipart/ form-data">
-=======
-        <form class="needs-validation" novalidate action="/crearEvento" method="POST">
->>>>>>> escribir-datos
           <div class="row">
+
             <div class="col-md-6 mb-3 form-group">
               <label for="nombreEvento">Nombre evento</label>
               <input type="text" class="form-control" name="nombreEvento" placeholder="" value="" required="">
@@ -36,6 +33,7 @@
                 Por favor, ingresa un nombre.
               </div>
             </div>
+
             <div class="col-md-6 mb-3">
               <label for="organizador">Organizador</label>
               <input type="text" class="form-control" name="organizador" placeholder="" value="" required="">
@@ -43,9 +41,11 @@
                 ¿Quién lo organiza?
               </div>
             </div>
+
           </div>
 
           <div class="row">
+            
             <div class="col-md-4 mb-3">
               <label for="tipo">Tipo de evento</label>
               <select class="custom-select d-block w-100" name="tipo" required="" >
@@ -64,69 +64,42 @@
             </div>
 
             <div class="col-md-4 mb-3">
-<<<<<<< HEAD
-              <label for="firstName">Fecha</label>
-              <input type="date" class="form-control" name="fecha" placeholder="" value="" required="">
-=======
               <label for="fecha">Fecha</label>
-              <input type="text" class="form-control" name="fecha" placeholder="" value="" required="">
->>>>>>> escribir-datos
+              <input type="date" class="form-control" name="fecha" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 ¿Cuándo es el evento?
               </div>
             </div>
 
             <div class="col-md-4 mb-3">
-<<<<<<< HEAD
-              <label for="firstName">Duración (horas)</label>
+              <label for="duracion">Duración (horas)</label>
               <input type="number" class="form-control" name="duracion" placeholder="" value="" required="">
-=======
-              <label for="duracion">Duración</label>
-              <input type="text" class="form-control" name="duracion" placeholder="" value="" required="">
->>>>>>> escribir-datos
               <div class="invalid-feedback">
                 ¿Cuánto dura el evento?
               </div>
             </div>
 
             <div class="col-md-3 mb-3">
-<<<<<<< HEAD
-              <label for="firstName">Capacidad</label>
-              <input type="number" class="form-control" name="capacidad" placeholder="" value="" required="">
-=======
               <label for="capacidad">Capacidad</label>
-              <input type="text" class="form-control" name="capacidad" placeholder="" value="" required="">
->>>>>>> escribir-datos
+              <input type="number" class="form-control" name="capacidad" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 Por favor, ingresa capacidad del evento.
               </div>
             </div>
 
             <div class="col-md-4 mb-3">
-<<<<<<< HEAD
-              <label for="firstName">Costo</label>
-              <input type="number" class="form-control" name="costo" placeholder="" value="" required="">
-=======
               <label for="costo">Costo</label>
-              <input type="text" class="form-control" name="costo" placeholder="" value="" required="">
->>>>>>> escribir-datos
+              <input type="number" class="form-control" name="costo" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 ¿Es gratis?
               </div>
             </div>
 
             <div class="col-md-5 mb-3">
-<<<<<<< HEAD
-              <label for="address">Lugar</label>
+              <label for="lugar">Lugar</label>
               <input type="text" class="form-control" name="lugar" placeholder="Dirección " required="">
               <div class="invalid-feedback">
-                Please enter your shipping address.
-=======
-              <label for="url">URL imagen</label>
-              <input type="url" class="form-control" name="image" placeholder="" value="" required="">
-              <div class="invalid-feedback">
-                Necesitamos una foto.
->>>>>>> escribir-datos
+                Por favor ingresa un lugar.
               </div>
             </div>
 
@@ -134,35 +107,22 @@
               <div class="descripcion">
                 <span class="form-control">Descripción</span>
               </div>
-              <textarea class="form-control" aria-label="With textarea" name="descripcion" required></textarea>
+              <textarea class="form-control" aria-label="With textarea" name="descripcion" required=""></textarea>
               <div class="invalid-feedback">
                 Agrega una breve descripción para saber de que trata.
               </div>
-<<<<<<< HEAD
-              <textarea class="form-control" aria-label="With textarea" name="descripcion"></textarea>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
             </div>
+
           </div>
 
           <div class="col-md-5 mb-3">
-            <label for="firstName">Imagen</label>
-            <input type="file" name="image" placeholder="" value="" required="" accept="image/*">
+            <label for="imagen">Imagen</label>
+            <input type="file" class="form-control" name="image" placeholder="" value="" required="" accept="image/*">
             <div class="invalid-feedback">
-              Valid first name is required.
-=======
+              Necesitamos una foto.
             </div>
           </div>
 
-          <div class="mb-3">
-            <label for="lugar">Lugar</label>
-            <input type="text" class="form-control" name="lugar" placeholder="Dirección " required="">
-            <div class="invalid-feedback">
-              Por favor ingresa un lugar.
->>>>>>> escribir-datos
-            </div>
-          </div>
           <hr class="mb-4">
           <button class="btn btn-danger btn-lg btn-block" href="/#" type="submit" style="background-color: #A61C31; margin: 10px; margin-left: 0;">Confirmar</button>
         </form>

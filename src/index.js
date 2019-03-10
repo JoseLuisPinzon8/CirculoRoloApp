@@ -3,8 +3,6 @@ const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const db  = require("./database.js");
-//const formidable = require("express-formidable");
 
 //Initialization
 const app = express();

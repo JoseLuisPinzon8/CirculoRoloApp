@@ -1,20 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database');
-<<<<<<< HEAD
 
 router.get('/', (req, res) => {
   res.render('evento/inicio');
-	});
-=======
->>>>>>> escribir-datos
+});
 
 router.get('/crearevento', (req, res) => {
   res.render('evento/crearEvento');
 });
 
 router.post('/crearevento', (req, res) => {
-<<<<<<< HEAD
 	const { nombreEvento, descripcion, capacidad, fecha, duracion, costo} = req.body;
 	var q = 'INSERT INTO evento (even_nombre,even_descripcion,even_capacidad,even_fecha,even_duracion,even_costo,even_idUsuario,even_idLugar,even_idCategoria) VALUES (';
 	q += '"'+nombreEvento+'"';
@@ -28,17 +24,9 @@ router.post('/crearevento', (req, res) => {
 	c = "select * from evento"; 
 	db.query(q,(error,results,fields)=>{
 		if(error) throw error;
-		res.redirect('/verevento');	
-	}); 
-=======
-  res.redirect('/');
-  const { nombreEvento, organizador, tipo, fecha, duracion, capacidad, costo, image, descripcion, lugar} = req.body;
-  const eventoNuevo = {
-    nombreEvento, organizador, tipo, fecha, duracion, capacidad, costo, image, descripcion, lugar
-  }
-
-  listaEventos.push(eventoNuevo);
-
+		res.redirect('/');
+	});
+	
 });
 
 
@@ -49,7 +37,6 @@ router.get('/', (req, res) => {
 	  	console.log(results);
 		res.render('evento/inicio', {c});
 	});
->>>>>>> escribir-datos
 });
 
 router.get('/verevento/:nombreEvento', async  (req, res) => {
