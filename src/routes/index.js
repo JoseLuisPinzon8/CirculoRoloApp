@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
-const listaEventos = []; //lista auxiliar porque no pude con la base :
+const db = require('../database');
 
 router.get('/crearevento', (req, res) => {
   res.render('evento/crearEvento');
@@ -20,8 +19,12 @@ router.post('/crearevento', (req, res) => {
 
 
 router.get('/', (req, res) => {
-  res.render('evento/inicio', {listaEventos});
-  console.log(listaEventos);
+	c = "SELECT * FROM evento"; 
+	db.query(c,(error,results,fields)=>{''
+		if(error) throw error;
+	  	console.log(results);
+		res.render('evento/inicio', {c});
+	});
 });
 
 router.get('/verevento/:nombreEvento', async  (req, res) => {
