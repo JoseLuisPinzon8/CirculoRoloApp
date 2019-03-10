@@ -1,4 +1,4 @@
-<div class="sidenav">
+<!--<div class="sidenav">
          <div class="login-main-text">
             <h2>Application<br> Login Page</h2>
             <p>Login or register from here to access.</p>
@@ -10,7 +10,7 @@
                <form action="/login" method="POST">
                   <div class="form-group">
                      <label>User Name</label>
-                     <input type="text" class="form-control" name="userName" placeholder="User Name" autofocus>
+                     <input type="text" class="form-control"  placeholder="User Name" autofocus>
                   </div>
                   <div class="form-group">
                      <label>Password</label>
@@ -20,5 +20,36 @@
                   <button type="submit" class="btn btn-secondary">Register</button>
                </form>
             </div>
+         </div>
+      </div>
+-->
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Circulo Rolo<br> Login</h2>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+<form action="/login" method="POST">
+  <div class="form-group">
+    <label for="exampleDropdownFormEmail2">User Name</label>
+    <input type="text" class="form-control" name="userName" id="exampleDropdownFormEmail2" placeholder="User Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleDropdownFormPassword2">Password</label>
+    <input type="password" class="form-control" id="exampleDropdownFormPassword2" name="pass" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+      <label class="form-check-label" for="dropdownCheck2">
+        Remember me
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+</div>
          </div>
       </div>
