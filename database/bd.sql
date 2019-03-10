@@ -60,10 +60,10 @@ CREATE TABLE IF NOT EXISTS EVENTO (
   even_nombre VARCHAR(45) NOT NULL,
   even_descripcion VARCHAR(200) NOT NULL,
   even_capacidad VARCHAR(45) NULL,
-  even_fecha datetime NOT NULL,
+  even_fecha DATETIME NOT NULL,
   even_duracion INT NULL,
   even_costo INT NULL,
-  even_foto VARCHAR(45) NULL,
+  /*even_foto VARCHAR(45) NULL,*/
   even_idUsuario INT NOT NULL,
   even_idLugar INT NOT NULL,
   even_idCategoria INT NOT NULL,
