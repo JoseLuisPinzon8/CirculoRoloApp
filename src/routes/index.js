@@ -23,10 +23,6 @@ router.get('/login', (req, res) => {
   res.render('Sesion/login');
 });
 
-router.get('/registrar', (req, res) => {
-  res.render('Sesion/registrar');
-});
-
 router.post('/login', async (req, res) => {
 	const {userName, pass} = req.body;
 	const iniSesion = {
@@ -47,5 +43,38 @@ router.post('/login', async (req, res) => {
 	}
 	
 });
+
+router.get('/registro', (req, res) => {
+  res.render('Sesion/registro');
+})
+
+
+router.post('/registro', async (req, res) => {
+	const {userName, nombres,apellidos,pass,correo,fechaDeNacimiento} = req.body;
+	console.log(req.body);
+	const registro = {
+	  userName,
+	  nombres,
+	  apellidos,
+	  pass,
+	  correo,
+	  fechaDeNacimiento
+	};
+/*
+	await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
+	console.log('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
+	const usuario = await pool.query('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
+	console.log(usuario);
+	if(usuario.length>0){
+		//res.send('recibido');
+		console.log(usuario);
+		res.render('evento/inicio');
+	}else{
+		//res.send('usuario no existe');
+		res.render('Sesion/login');
+	}
+	
+});
+
 
 module.exports = router;

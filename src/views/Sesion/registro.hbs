@@ -1,0 +1,38 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card text-center">
+        <div class="card-header">
+          <h6>Registro</h6>
+        </div>
+        <div class="card-body">
+          <form action="/registro" method="POST" enctype="multipart/ form-data">
+            <div class="form-group">
+              <input type="text" name="userName" placeholder="Nombre de Usuario" class="form-control" autofocus>
+            </div>
+            <div class="form-group">
+              <input type="text" name="nombres" placeholder="Nombre" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="apellidos" placeholder="Apellido" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" name="pass" placeholder="Contraseña" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="correo" placeholder="Correo" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento" class="form-control">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-block">
+                Crear Usuario
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
