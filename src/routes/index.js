@@ -69,6 +69,7 @@ router.post('/registro', async (req, res) => {
 		if(error == 'ER_DUP_ENTRY'){
 			console.error('El userName ya existe');
 		}
+		req.flash('errUserName','El UserName ya existe');
   		res.render('Sesion/registro');
 	}			
 });

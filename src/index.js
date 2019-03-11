@@ -3,6 +3,12 @@ const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session');
+
+const { database } = require('./keys');
+
 const db  = require("./database.js");
 
 //Initialization
@@ -20,15 +26,23 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');//La linea de arriba es como funciona handlebars
 
-//Middlewares	
+//Middlewares
+app.use(session({
+	secret: 'CualquierTexto',
+	resave: false,
+	saveUninitialzed: false,
+	store: new MySQLStore(database)
+}));	
+app.use(flash());
 app.use(morgan('dev'));
 //para poder aceptar desde los formularios los datos que me envían los usuarios
 app.use(express.urlencoded({ extended: false }));
 
+
 //Global variables
 app.use((req,res,next)=>{
-
-next();
+	app.locals.errUserName=req.flash('errUserName');
+	next();
 });
 
 //Routes
