@@ -26,6 +26,9 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
   PRIMARY KEY (usua_id))
 ENGINE = InnoDB;
 
+ALTER TABLE USUARIOS 
+ADD UNIQUE (usua_userName);
+
 -- -----------------------------------------------------
 -- Table LUGAR
 -- -----------------------------------------------------

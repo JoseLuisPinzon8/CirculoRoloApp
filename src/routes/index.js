@@ -51,7 +51,6 @@ router.get('/registro', (req, res) => {
 
 router.post('/registro', async (req, res) => {
 	const {userName, nombres,apellidos,pass,correo,fechaDeNacimiento} = req.body;
-	console.log(req.body);
 	const registro = {
 	  userName,
 	  nombres,
@@ -62,18 +61,16 @@ router.post('/registro', async (req, res) => {
 	};
 /*
 	await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
-	console.log('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
-	const usuario = await pool.query('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
-	console.log(usuario);
-	if(usuario.length>0){
-		//res.send('recibido');
-		console.log(usuario);
-		res.render('evento/inicio');
-	}else{
-		//res.send('usuario no existe');
+	try{
+		const usuario = await pool.query('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
 		res.render('Sesion/login');
 	}
-	
+	catch(error) {
+		if(error == 'ER_DUP_ENTRY'){
+			console.error('El userName ya existe');
+		}
+  		res.render('Sesion/registro');
+	}			
 });
 
 
