@@ -5,7 +5,11 @@ const pool = require('../database');
 
 router.get('/', (req, res) => {
   res.render('evento/inicio');
-	});
+});
+
+router.get('/perfil', (req, res) => {
+  res.render('evento/perfil');
+});
 
 router.get('/crearevento', (req, res) => {
   res.render('evento/crearEvento');
@@ -29,16 +33,16 @@ router.post('/login', async (req, res) => {
 		userName,
 		pass
 	};
-/*
+/* 
 	await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
 
 	const usuario = await pool.query('select * from USUARIOS where usua_userName="'+iniSesion.userName+'" and usua_contraseña="'+iniSesion.pass+'";');
 	if(usuario.length>0){
 		//res.send('recibido');
-		console.log(usuario);
-		res.render('evento/inicio');
+		res.render('evento/perfil');
 	}else{
 		//res.send('usuario no existe');
+		req.flash('errLogin','Usuario o Contraseña incorrectos');
 		res.render('Sesion/login');
 	}
 	

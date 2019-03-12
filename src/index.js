@@ -42,6 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 //Global variables
 app.use((req,res,next)=>{
 	app.locals.errUserName=req.flash('errUserName');
+	app.locals.errLogin=req.flash('errLogin');
 	next();
 });
 

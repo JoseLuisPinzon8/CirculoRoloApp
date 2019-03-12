@@ -1,3 +1,54 @@
+<div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #94B43B;">
+        <a class="navbar-brand" href="/">Circulo Rolo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login" id="sesion">Iniciar Sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/registro" id="registro">Resgistrarse</a>
+            </li>
+          </ul>
+          <img src="https://image.flaticon.com/icons/svg/69/69407.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          <img src="https://image.flaticon.com/icons/svg/1191/1191557.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          <img src="https://image.flaticon.com/icons/svg/1191/1191557.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        </div>
+      </nav>
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+
+      <a class="p-2 text-muted" href="#">Conciertos</a>
+      <a class="p-2 text-muted" href="#">Cultura</a>
+      <a class="p-2 text-muted" href="#">Comedia</a>
+      <a class="p-2 text-muted" href="#">Teatro</a>
+      <a class="p-2 text-muted" href="#">Familiar</a>
+      <a class="p-2 text-muted" href="#">Deportes</a>
+      <a class="p-2 text-muted" href="#">Festivales</a>
+    </nav>
+  </div>
+
+{{#if errUserName}}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mx-auto">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{errUserName}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="CLose">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+
 <div class="container p-4">
   <div class="row">
     <div class="col-md-4 mx-auto">
