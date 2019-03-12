@@ -69,6 +69,7 @@ router.get('/perfil', (req, res) => {
   c = "SELECT * FROM evento";
   pool.query(c,(error,results,fields)=>{
     if(error) throw error;
+    console.log("PERFIL");
       console.log(results);
     res.render('evento/perfil', {results});
   });
