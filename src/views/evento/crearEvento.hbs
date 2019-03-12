@@ -45,7 +45,7 @@
           </div>
 
           <div class="row">
-            
+
             <div class="col-md-4 mb-3">
               <label for="tipo">Tipo de evento</label>
               <select class="custom-select d-block w-100" name="tipo" required="" >
@@ -57,6 +57,7 @@
                 <option>Familiar</option>
                 <option>Deportes</option>
                 <option>Festivales</option>
+                <option>Educativos</option>
               </select>
               <div class="invalid-feedback">
                 ¿De qué tipo es el evento?
@@ -115,12 +116,9 @@
 
           </div>
 
-          <div class="col-md-5 mb-3">
-            <label for="imagen">Imagen</label>
-            <input type="file" class="form-control" name="image" placeholder="" value="" required="" accept="image/*">
-            <div class="invalid-feedback">
-              Necesitamos una foto.
-            </div>
+          <div class="col-md-12 mb-3">
+            <label for="imagen">Enlace imagen (opcional)</label>
+            <input type="url" class="form-control" name="foto" placeholder="Dirección URL" >
           </div>
 
           <hr class="mb-4">
