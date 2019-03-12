@@ -85,6 +85,17 @@ router.get('/verevento/:idEvento',   (req, res) => {
 
 });
 
+router.get('/vereventoperfil/:idEvento',   (req, res) => {
+  c = "select * from EVENTO where even_id = "+req.params.idEvento+";";
+
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+      //console.log(results);
+    res.render('evento/verEventoPerfil', {results});
+  });
+
+});
+
 router.get('/perfil', (req, res) => {
   res.render('evento/perfil');
 });
