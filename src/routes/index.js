@@ -50,7 +50,7 @@ router.post('/crearevento', (req, res) => {
 	c = "select * from evento";
 	pool.query(q,(error,results,fields)=>{
 		if(error) throw error;
-		res.redirect('/');
+		res.redirect('/perfil');
 	});
 
 });
@@ -114,7 +114,7 @@ router.post('/login', async (req, res) => {
   await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
 
   const usuario = await pool.query('select * from USUARIOS where usua_userName="'+iniSesion.userName+'" and usua_contraseña="'+iniSesion.pass+'";');
-  console.log(usuario);
+  //console.log(usuario);
   if(usuario.length>0){
     //res.send('recibido');
     //{{nombreUsuario}}=usuario[1];
@@ -145,7 +145,6 @@ router.post('/registro', async (req, res) => {
 /*
   await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
 
-  console.log('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
   try{
     const usuario = await pool.query('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
     res.render('Sesion/login');
