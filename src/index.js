@@ -43,6 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use((req,res,next)=>{
 	app.locals.errUserName=req.flash('errUserName');
 	app.locals.errLogin=req.flash('errLogin');
+	app.locals.nombreUsuario = "Bienvenido";
 	next();
 });
 

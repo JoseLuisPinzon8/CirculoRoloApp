@@ -39,6 +39,7 @@ router.post('/login', async (req, res) => {
 	const usuario = await pool.query('select * from USUARIOS where usua_userName="'+iniSesion.userName+'" and usua_contraseña="'+iniSesion.pass+'";');
 	if(usuario.length>0){
 		//res.send('recibido');
+		//{{nombreUsuario}}=usuario[1];
 		res.render('evento/perfil');
 	}else{
 		//res.send('usuario no existe');
