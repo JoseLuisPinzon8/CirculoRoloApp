@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../database');
-
 const pool = require('../database');
 
 router.get('/crearevento', (req, res) => {
@@ -50,7 +48,7 @@ router.post('/crearevento', (req, res) => {
   q += '"'+tipo+'","'+url+'");';
 	console.log(q)
 	c = "select * from evento";
-	db.query(q,(error,results,fields)=>{
+	pool.query(q,(error,results,fields)=>{
 		if(error) throw error;
 		res.redirect('/');
 	});
@@ -60,19 +58,28 @@ router.post('/crearevento', (req, res) => {
 
 router.get('/', (req, res) => {
 	c = "SELECT * FROM evento";
-	db.query(c,(error,results,fields)=>{
+	pool.query(c,(error,results,fields)=>{
 		if(error) throw error;
 	  	console.log(results);
 		res.render('evento/inicio', {results});
 	});
 });
 
+router.get('/perfil', (req, res) => {
+  c = "SELECT * FROM evento";
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+      console.log(results);
+    res.render('evento/perfil', {results});
+  });
+});
+
 router.get('/verevento/:idEvento',   (req, res) => {
   c = "select * from EVENTO where even_id = "+req.params.idEvento+";";
 
-  db.query(c,(error,results,fields)=>{
+  pool.query(c,(error,results,fields)=>{
 		if(error) throw error;
-	  	console.log(results);
+	  	//console.log(results);
 		res.render('evento/verEvento', {results});
 	});
 
@@ -96,6 +103,7 @@ router.post('/login', async (req, res) => {
   await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
 
   const usuario = await pool.query('select * from USUARIOS where usua_userName="'+iniSesion.userName+'" and usua_contraseña="'+iniSesion.pass+'";');
+  console.log(usuario);
   if(usuario.length>0){
     //res.send('recibido');
     //{{nombreUsuario}}=usuario[1];
@@ -125,6 +133,8 @@ router.post('/registro', async (req, res) => {
   };
 /*
   await pool.query('insert into LUGAR (lug_id, lug_nombre)values('+iniSesion.pass+',"'+iniSesion.userName+'");');*/
+
+  console.log('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
   try{
     const usuario = await pool.query('insert into USUARIOS (usua_userName,usua_nombres,usua_apellidos,usua_contraseña,usua_correo,usua_fechaDeNacimiento)values("'+registro.userName+'","'+registro.nombres+'","'+registro.apellidos+'","'+registro.pass+'","'+registro.correo+'","'+registro.fechaDeNacimiento+'");');
     res.render('Sesion/login');

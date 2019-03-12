@@ -1,6 +1,7 @@
 //ESTE ARCHIVO VA A TENER LA CONEXIÓN A MYSQL
 
 const mysql = require('mysql');
+const { promisify } = require('util');
 const { database } = require('./keys');
 
 const pool = mysql.createPool(database); //Crea hilos para no correr todo secuencial
@@ -24,5 +25,7 @@ pool.getConnection((err, con) => {
   console.log('La base de datos está conectada');
   return;
 });
+
+pool.query = promisify(pool.query);
 
 module.exports = pool;
