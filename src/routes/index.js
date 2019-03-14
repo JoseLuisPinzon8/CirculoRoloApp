@@ -47,7 +47,6 @@ router.post('/crearevento', (req, res) => {
 	q += ",1,1,";
   q += '"'+tipo+'","'+url+'");';
 	console.log(q)
-	c = "select * from evento";
 	pool.query(q,(error,results,fields)=>{
 		if(error) throw error;
 		res.redirect('/perfil');
@@ -57,19 +56,18 @@ router.post('/crearevento', (req, res) => {
 
 
 router.get('/', (req, res) => {
-	c = "SELECT * FROM evento";
+	c = "SELECT * FROM evento order by even_fecha; ";
 	pool.query(c,(error,results,fields)=>{
 		if(error) throw error;
-	  	console.log(results);
+	  	//console.log(results);
 		res.render('evento/inicio', {results});
 	});
 });
 
 router.get('/perfil', (req, res) => {
-  c = "SELECT * FROM evento";
+  c = "SELECT * FROM evento order by even_fecha; ";
   pool.query(c,(error,results,fields)=>{
     if(error) throw error;
-    console.log("PERFIL");
       console.log(results);
     res.render('evento/perfil', {results});
   });
@@ -97,6 +95,136 @@ router.get('/vereventoperfil/:idEvento',   (req, res) => {
 
 });
 
+router.get('/conciertos', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Conciertos" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+      //console.log(results);
+    res.render('categorias/conciertos', {results});
+  });
+});
+
+router.get('/conciertosperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Conciertos" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/conciertosPerfil', {results});
+  });
+});
+
+router.get('/cultura', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Cultura" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/cultura', {results});
+  });
+});
+
+router.get('/culturaperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Cultura" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/culturaPerfil', {results});
+  });
+});
+
+router.get('/comedia', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Comedia" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/comedia', {results});
+  });
+});
+
+router.get('/comediaperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Comedia" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/comediaPerfil', {results});
+  });
+});
+
+router.get('/teatro', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Teatro" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/teatro', {results});
+  });
+});
+
+router.get('/teatroperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Teatro" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/teatroPerfil', {results});
+  });
+});
+
+router.get('/familiar', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Familiar" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/familiar', {results});
+  });
+});
+
+router.get('/familiarperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Familiar" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/familiarPerfil', {results});
+  });
+});
+
+
+router.get('/deportes', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Deportes" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/deportes', {results});
+  });
+});
+
+router.get('/deportesperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Deportes" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/deportesPerfil', {results});
+  });
+});
+
+router.get('/festivales', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Festivales" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/festivales', {results});
+  });
+});
+
+router.get('/festivalesperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Festivales" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/festivalesPerfil', {results});
+  });
+});
+
+router.get('/educativos', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Educativos" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/educativos', {results});
+  });
+});
+
+router.get('/educativosperfil', (req, res) => {
+  c = 'select * from EVENTO where even_categoria="Educativos" order by even_fecha;';
+  pool.query(c,(error,results,fields)=>{
+    if(error) throw error;
+    res.render('categorias/educativosPerfil', {results});
+  });
+});
+
 router.get('/perfil', (req, res) => {
   res.render('evento/perfil');
 });
@@ -119,11 +247,12 @@ router.post('/login', async (req, res) => {
   if(usuario.length>0){
     //res.send('recibido');
     //{{nombreUsuario}}=usuario[1];
-    res.render('evento/perfil');
+    //res.render('evento/perfil');
+    res.redirect('/perfil');
   }else{
     //res.send('usuario no existe');
     req.flash('errLogin','Usuario o Contraseña incorrectos');
-    res.render('Sesion/login');
+    res.redirect('/login');
   }
   
 });
@@ -155,7 +284,7 @@ router.post('/registro', async (req, res) => {
       console.error('El userName ya existe');
     }
     req.flash('errUserName','El UserName ya existe');
-      res.render('Sesion/registro');
+      res.redirect('/registro');
   }     
 });
 
